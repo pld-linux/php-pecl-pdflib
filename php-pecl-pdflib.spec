@@ -12,10 +12,16 @@ Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
 # Source0-md5:	60341f1afd61a6ec01790793473a702a
 Patch0:		%{name}-fix_includes.patch
 URL:		http://pecl.php.net/package/Modname/
+BuildRequires:	libjpeg-devel
+BuildRequires:	libtiff-devel
+BuildRequires:	libpng-devel
 BuildRequires:	libtool
+BuildRequires:	pdflib-devel
 BuildRequires:	php-devel
+BuildRequires:	zlib-devel
 Requires:	php-common
 Obsoletes:	php-pear-%{_modname}
+Obsoletes:	php-pdf < 3:5.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_sysconfdir	/etc/php
