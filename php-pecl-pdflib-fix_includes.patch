@@ -1,0 +1,19 @@
+
+This patch removes includes of two files that we do not have.
+Package builds and works fine without them.
+
+diff -burN php-pecl-pdflib-1.0.orig/pdflib-1.0/pdf.c php-pecl-pdflib-1.0/pdflib-1.0/pdf.c
+--- php-pecl-pdflib-1.0.orig/pdflib-1.0/pdf.c	2004-11-11 13:32:26.000000000 +0100
++++ php-pecl-pdflib-1.0/pdflib-1.0/pdf.c	2004-11-11 15:12:54.874016688 +0100
+@@ -39,9 +39,9 @@
+ #include "php_streams.h"
+ 
+ #if HAVE_LIBGD13
+-#include "ext/gd/php_gd.h"
++//#include "ext/gd/php_gd.h"
+ #if HAVE_GD_BUNDLED
+-#include "ext/gd/libgd/gd.h"
++//#include "ext/gd/libgd/gd.h"
+ #else
+ #include "gd.h"
+ #endif

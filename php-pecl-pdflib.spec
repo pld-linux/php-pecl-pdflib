@@ -1,0 +1,70 @@
+%define		_modname	pdflib
+%define		_status		stable
+
+Summary:	%{_modname} - creating PDF on the fly with the PDFlib library
+Summary(pl):	%{_modname} - tworzenie PDF "w locie" za pomoc± biblioteki PDFlib
+Name:		php-pecl-%{_modname}
+Version:	1.0
+Release:	1
+License:	PHP 
+Group:		Development/Languages/PHP
+Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
+# Source0-md5:	60341f1afd61a6ec01790793473a702a
+Patch0:		%{name}-fix_includes.patch
+URL:		http://pecl.php.net/package/Modname/
+BuildRequires:	libtool
+BuildRequires:	php-devel
+Requires:	php-common
+Obsoletes:	php-pear-%{_modname}
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_sysconfdir	/etc/php
+%define		extensionsdir	%{_libdir}/php
+
+%description
+This extension wraps the PDFlib programming library
+for processing PDF on the fly.
+
+In PECL status of this extension is: %{_status}.
+
+%description -l pl
+To rozszerzenie "owija" bibliotekê PDFlib przeznaczon± do tworzenia
+dokumentów PDF "w locie". 
+
+To rozszerzenie ma w PECL status: %{_status}.
+
+%prep
+%setup -q -c
+%patch0 -p1
+
+%build
+cd %{_modname}-%{version}
+phpize
+%configure \
+	--with-png-dir=%{_prefix} \
+	--with-jpeg-dir=%{_prefix} \
+	--with-tiff-dir=%{_prefix} \
+	--with-zlib-dir=%{_prefix}
+%{__make}
+
+%install
+rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{extensionsdir}
+
+install %{_modname}-%{version}/modules/pdf.so $RPM_BUILD_ROOT%{extensionsdir}/%{_modname}.so
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%post
+%{_sbindir}/php-module-install install %{_modname} %{_sysconfdir}/php-cgi.ini
+
+%preun
+if [ "$1" = "0" ]; then
+	%{_sbindir}/php-module-install remove %{_modname} %{_sysconfdir}/php-cgi.ini
+fi
+
+%files
+%defattr(644,root,root,755)
+%doc %{_modname}-%{version}/CREDITS
+%attr(755,root,root) %{extensionsdir}/%{_modname}.so
