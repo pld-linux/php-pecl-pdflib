@@ -6,15 +6,15 @@ Summary(pl):	%{_modname} - tworzenie PDF "w locie" za pomoc± biblioteki PDFlib
 Name:		php-pecl-%{_modname}
 Version:	1.0
 Release:	1
-License:	PHP 
+License:	PHP
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
 # Source0-md5:	60341f1afd61a6ec01790793473a702a
 Patch0:		%{name}-fix_includes.patch
 URL:		http://pecl.php.net/package/Modname/
 BuildRequires:	libjpeg-devel
-BuildRequires:	libtiff-devel
 BuildRequires:	libpng-devel
+BuildRequires:	libtiff-devel
 BuildRequires:	libtool
 BuildRequires:	pdflib-devel
 BuildRequires:	php-devel
@@ -28,14 +28,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		extensionsdir	%{_libdir}/php
 
 %description
-This extension wraps the PDFlib programming library
-for processing PDF on the fly.
+This extension wraps the PDFlib programming library for processing PDF
+on the fly.
 
 In PECL status of this extension is: %{_status}.
 
 %description -l pl
 To rozszerzenie "owija" bibliotekê PDFlib przeznaczon± do tworzenia
-dokumentów PDF "w locie". 
+dokumentów PDF "w locie".
 
 To rozszerzenie ma w PECL status: %{_status}.
 
