@@ -15,7 +15,6 @@ URL:		http://pecl.php.net/package/Modname/
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
-BuildRequires:	libtool
 BuildRequires:	pdflib-devel
 BuildRequires:	php-devel
 BuildRequires:	zlib-devel
