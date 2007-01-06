@@ -1,4 +1,5 @@
 %define		_modname	pdflib
+%define		_smodname	pdf
 %define		_status		stable
 Summary:	%{_modname} - creating PDF on the fly with the PDFlib library
 Summary(pl):	%{_modname} - tworzenie PDF "w locie" za pomoc± biblioteki PDFlib
@@ -54,10 +55,10 @@ phpize
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{php_sysconfdir}/conf.d,%{php_extensiondir}}
 
-install %{_modname}-%{version}/modules/%{_modname}.so $RPM_BUILD_ROOT%{php_extensiondir}
+install %{_modname}-%{version}/modules/%{_smodname}.so $RPM_BUILD_ROOT%{php_extensiondir}
 cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{_modname}.ini
 ; Enable %{_modname} extension module
-extension=%{_modname}.so
+extension=%{_smodname}.so
 EOF
 
 %clean
@@ -75,4 +76,4 @@ fi
 %defattr(644,root,root,755)
 %doc %{_modname}-%{version}/CREDITS
 %config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{_modname}.ini
-%attr(755,root,root) %{php_extensiondir}/%{_modname}.so
+%attr(755,root,root) %{php_extensiondir}/%{_smodname}.so
