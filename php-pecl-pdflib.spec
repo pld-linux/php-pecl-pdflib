@@ -2,7 +2,7 @@
 %define		_smodname	pdf
 %define		_status		stable
 Summary:	%{_modname} - creating PDF on the fly with the PDFlib library
-Summary(pl):	%{_modname} - tworzenie PDF "w locie" za pomoc± biblioteki PDFlib
+Summary(pl.UTF-8):   %{_modname} - tworzenie PDF "w locie" za pomocÄ… biblioteki PDFlib
 Name:		php-pecl-%{_modname}
 Version:	1.0
 Release:	2
@@ -31,9 +31,9 @@ on the fly.
 
 In PECL status of this extension is: %{_status}.
 
-%description -l pl
-To rozszerzenie "owija" bibliotekê PDFlib przeznaczon± do tworzenia
-dokumentów PDF "w locie".
+%description -l pl.UTF-8
+To rozszerzenie "owija" bibliotekÄ™ PDFlib przeznaczonÄ… do tworzenia
+dokumentÃ³w PDF "w locie".
 
 To rozszerzenie ma w PECL status: %{_status}.
 
