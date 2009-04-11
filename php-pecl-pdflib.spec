@@ -4,12 +4,12 @@
 Summary:	%{_modname} - creating PDF on the fly with the PDFlib library
 Summary(pl.UTF-8):	%{_modname} - tworzenie PDF "w locie" za pomocą biblioteki PDFlib
 Name:		php-pecl-%{_modname}
-Version:	2.1.5
+Version:	2.1.7
 Release:	1
 License:	PHP
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
-# Source0-md5:	20cc71fad0792658e5fc666558dbda47
+# Source0-md5:	02323827f244d7d7db645b1d3874f980
 URL:		http://pecl.php.net/package/Modname/
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
