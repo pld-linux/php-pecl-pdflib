@@ -1,16 +1,16 @@
-%define		_modname	pdflib
-%define		_smodname	pdf
-%define		_status		stable
-Summary:	%{_modname} - creating PDF on the fly with the PDFlib library
-Summary(pl.UTF-8):	%{_modname} - tworzenie PDF "w locie" za pomocą biblioteki PDFlib
-Name:		php-pecl-%{_modname}
-Version:	2.1.7
+%define		modname	pdflib
+%define		smodname	pdf
+%define		status		stable
+Summary:	%{modname} - creating PDF on the fly with the PDFlib library
+Summary(pl.UTF-8):	%{modname} - tworzenie PDF "w locie" za pomocą biblioteki PDFlib
+Name:		php-pecl-%{modname}
+Version:	2.1.8
 Release:	1
 License:	PHP
 Group:		Development/Languages/PHP
-Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
-# Source0-md5:	02323827f244d7d7db645b1d3874f980
-URL:		http://pecl.php.net/package/Modname/
+Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
+# Source0-md5:	ee1b7c30b68b2caba8a95ef9a45e9b84
+URL:		http://pecl.php.net/package/pdflib/
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
@@ -20,7 +20,7 @@ BuildRequires:	rpmbuild(macros) >= 1.344
 BuildRequires:	zlib-devel
 %{?requires_php_extension}
 Requires:	php-common >= 4:5.0.4
-Obsoletes:	php-pear-%{_modname}
+Obsoletes:	php-pear-%{modname}
 Obsoletes:	php-pdf < 3:5.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -28,19 +28,19 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This extension wraps the PDFlib programming library for processing PDF
 on the fly.
 
-In PECL status of this extension is: %{_status}.
+In PECL status of this extension is: %{status}.
 
 %description -l pl.UTF-8
 To rozszerzenie "owija" bibliotekę PDFlib przeznaczoną do tworzenia
 dokumentów PDF "w locie".
 
-To rozszerzenie ma w PECL status: %{_status}.
+To rozszerzenie ma w PECL status: %{status}.
 
 %prep
-%setup -q -c
+%setup -qc
+mv %{modname}-%{version}/* .
 
 %build
-cd %{_modname}-%{version}
 phpize
 %configure \
 	--with-png-dir=%{_prefix} \
@@ -53,10 +53,10 @@ phpize
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{php_sysconfdir}/conf.d,%{php_extensiondir}}
 
-install %{_modname}-%{version}/modules/%{_smodname}.so $RPM_BUILD_ROOT%{php_extensiondir}
-cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{_modname}.ini
-; Enable %{_modname} extension module
-extension=%{_smodname}.so
+install -p modules/%{smodname}.so $RPM_BUILD_ROOT%{php_extensiondir}
+cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
+; Enable %{modname} extension module
+extension=%{smodname}.so
 EOF
 
 %clean
@@ -72,6 +72,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%doc %{_modname}-%{version}/CREDITS
-%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{_modname}.ini
-%attr(755,root,root) %{php_extensiondir}/%{_smodname}.so
+%doc CREDITS
+%config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
+%attr(755,root,root) %{php_extensiondir}/%{smodname}.so
