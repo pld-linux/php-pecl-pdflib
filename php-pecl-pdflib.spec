@@ -21,7 +21,6 @@ BuildRequires:	zlib-devel
 %{?requires_php_extension}
 Requires:	php(core) >= 5.0.4
 Obsoletes:	php-pdf < 3:5.0.0
-Obsoletes:	php-pear-%{modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
