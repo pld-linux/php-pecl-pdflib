@@ -19,9 +19,9 @@ BuildRequires:	php-devel >= 3:5.0.0
 BuildRequires:	rpmbuild(macros) >= 1.344
 BuildRequires:	zlib-devel
 %{?requires_php_extension}
-Requires:	php-common >= 4:5.0.4
-Obsoletes:	php-pear-%{modname}
+Requires:	php(core) >= 5.0.4
 Obsoletes:	php-pdf < 3:5.0.0
+Obsoletes:	php-pear-%{modname}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
