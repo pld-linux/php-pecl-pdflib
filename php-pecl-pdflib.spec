@@ -1,9 +1,10 @@
+%define		php_name	php%{?php_suffix}
 %define		modname	pdflib
 %define		smodname	pdf
 %define		status		stable
 Summary:	%{modname} - creating PDF on the fly with the PDFlib library
 Summary(pl.UTF-8):	%{modname} - tworzenie PDF "w locie" za pomocą biblioteki PDFlib
-Name:		php-pecl-%{modname}
+Name:		%{php_name}-pecl-%{modname}
 Version:	2.1.9
 Release:	2
 License:	PHP
@@ -15,8 +16,8 @@ BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	pdflib-devel
-BuildRequires:	php-devel >= 3:5.0.0
-BuildRequires:	rpmbuild(macros) >= 1.344
+BuildRequires:	%{php_name}-devel >= 3:5.0.0
+BuildRequires:	rpmbuild(macros) >= 1.650
 BuildRequires:	zlib-devel
 %{?requires_php_extension}
 Requires:	php(core) >= 5.0.4
