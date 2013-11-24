@@ -6,21 +6,22 @@ Summary:	%{modname} - creating PDF on the fly with the PDFlib library
 Summary(pl.UTF-8):	%{modname} - tworzenie PDF "w locie" za pomocą biblioteki PDFlib
 Name:		%{php_name}-pecl-%{modname}
 Version:	2.1.9
-Release:	2
+Release:	3
 License:	PHP
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	04b4e0a2a8731c5f087f40620aca4ddf
 URL:		http://pecl.php.net/package/pdflib/
+BuildRequires:	%{php_name}-devel >= 3:5.0.0
 BuildRequires:	libjpeg-devel
 BuildRequires:	libpng-devel
 BuildRequires:	libtiff-devel
 BuildRequires:	pdflib-devel
-BuildRequires:	%{php_name}-devel >= 3:5.0.0
 BuildRequires:	rpmbuild(macros) >= 1.650
 BuildRequires:	zlib-devel
 %{?requires_php_extension}
 Requires:	php(core) >= 5.0.4
+Provides:	php(%{modname}) = %{version}
 Obsoletes:	php-pdf < 3:5.0.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
